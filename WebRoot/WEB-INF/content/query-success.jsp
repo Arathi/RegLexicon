@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'query-success.jsp' starting page</title>
+    <title>${feature } - 正则词典</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -25,9 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <jsp:include page="query_header.jsp" flush="true" />
-        找到${result.amount }条结果 （用时${result.timeCost }秒）<br/>
+        找到${result.amount }条结果 （用时${result.timeCost }秒）<br/><br/>
 		<s:iterator value="result.resultSet" id="word">
-			<s:property value="#word.name" /><br/>
+			<a href='http://cn.bing.com/dict/search?q=${word.name }'><s:property value="#word.name" /></a><br/>
 		</s:iterator>
   </body>
 </html>
